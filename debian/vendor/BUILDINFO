@@ -1,10 +1,10 @@
 Source-Repository: https://github.com/SimHacker/MicropolisCore
 Source-Commit: c591573ad8c8c8bbecf26cea018e2c164c22c252
 Deployment-Branch: gh-pages
-Deployment-Commit: 20dedfac90bc348b44de80b77a6cec481d952661
+Deployment-Commit: 20ded09269a07d21743fd722c1c5c343b6f9a51b
 Deployment-Tree: 0ed9cef2a6afbe0c2db0cf5b157ddd8d87bce534
 Selected-App-Tree: 9b97bf7680f21735a61af1cd98f7a197a490fdcd
-Deployment-Date-UTC: 2025-04-06
+Deployment-Date-UTC: 2025-04-05
 Base-Path: /MicropolisCore
 
 The files in debian/vendor/micropolis-web are selected without content changes
