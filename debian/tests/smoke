@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-launcher=${1:-/usr/games/micropolis}
+launcher=${1:-/usr/games/micropolis-core}
 tmpdir=$(mktemp -d)
 server_pid=
 
@@ -44,12 +44,12 @@ with urlopen(f"http://127.0.0.1:{port}/", timeout=5) as response:
     html = response.read().decode("utf-8")
     assert response.geturl() == base, response.geturl()
     assert "Micropolis" in html
-    assert response.headers.get("X-Micropolis-Launcher") == "micropolis-debian-launcher/1"
+    assert response.headers.get("X-Micropolis-Launcher") == "micropolis-core-debian-launcher/1"
 
 with urlopen(base + "micropolisengine.wasm", timeout=5) as response:
     payload = response.read(8)
     assert payload.startswith(b"\x00asm"), payload
     assert response.headers.get_content_type() == "application/wasm", response.headers.get("Content-Type")
 
-print("PASS: Micropolis launcher serves HTML and WebAssembly over loopback HTTP")
+print("PASS: Micropolis Core launcher serves HTML and WebAssembly over loopback HTTP")
 PY

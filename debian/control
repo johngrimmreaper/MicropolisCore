@@ -1,4 +1,4 @@
-Source: micropolis
+Source: micropolis-core
 Section: games
 Priority: optional
 Maintainer: Reaper <JohnGrimmReaper@disroot.org>
@@ -11,13 +11,13 @@ Homepage: https://github.com/SimHacker/MicropolisCore
 Vcs-Git: https://github.com/johngrimmreaper/MicropolisCore.git -b ubuntu/24.04-noble
 Vcs-Browser: https://github.com/johngrimmreaper/MicropolisCore/tree/ubuntu/24.04-noble
 
-Package: micropolis
+Package: micropolis-core
 Architecture: any
 Depends:
  ${misc:Depends},
  python3,
  xdg-utils,
-Description: real-time city simulation game
+Description: browser-based Micropolis Core city simulation
  Micropolis is the open-source release of the classic city simulation
  engine, presented as a self-contained local web application.
  .

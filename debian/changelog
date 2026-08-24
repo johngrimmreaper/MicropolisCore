@@ -1,9 +1,9 @@
-micropolis (0.0.20250405+gitc591573-0ubuntu1~24.04.1) noble; urgency=medium
+micropolis-core (0.0.20250405+gitc591573+ds1-0ubuntu1) UNRELEASED; urgency=medium
 
   * Package the upstream web release built from Git commit c591573.
   * Vendor the matching upstream-published static deployment so package
     builds remain offline and do not depend on Node.js or pnpm.
-  * Add a loopback-only launcher that serves Micropolis locally and opens
+  * Add a loopback-only launcher that serves Micropolis Core locally and opens
     the user's default browser.
   * Build the binary package as Architecture: any intentionally, allowing
     Launchpad to exercise the source package on every enabled Noble

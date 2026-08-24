@@ -1,8 +1,8 @@
-Micropolis for Ubuntu
-=====================
+Micropolis Core for Ubuntu
+===========================
 
 This package runs Micropolis as a self-contained local web application.
-/usr/games/micropolis starts an HTTP server bound only to 127.0.0.1 and opens
+/usr/games/micropolis-core starts an HTTP server bound only to 127.0.0.1 and opens
 the game in the user's default browser. The packaged application itself does
 not require an external web application service.
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
   <id>io.github.SimHacker.MicropolisCore</id>
-  <name>Micropolis</name>
-  <summary>Build and manage a simulated city</summary>
+  <name>Micropolis Core</name>
+  <summary>Explore the Micropolis Core city simulation frontend</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <description>
@@ -17,9 +17,9 @@
       is required.
     </p>
   </description>
-  <launchable type="desktop-id">micropolis.desktop</launchable>
+  <launchable type="desktop-id">micropolis-core.desktop</launchable>
   <provides>
-    <binary>micropolis</binary>
+    <binary>micropolis-core</binary>
   </provides>
   <url type="homepage">https://github.com/SimHacker/MicropolisCore</url>
   <content_rating type="oars-1.1"/>

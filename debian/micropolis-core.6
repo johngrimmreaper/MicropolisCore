@@ -1,11 +1,11 @@
-.TH MICROPOLIS 6 "August 2026" "Micropolis" "Games Manual"
+.TH MICROPOLIS-CORE 6 "August 2026" "Micropolis" "Games Manual"
 .SH NAME
-micropolis \- run the Micropolis city simulation
+micropolis-core \- run the Micropolis city simulation
 .SH SYNOPSIS
-.B micropolis
+.B micropolis-core
 .RI [ options ]
 .SH DESCRIPTION
-.B micropolis
+.B micropolis-core
 starts a small HTTP server bound exclusively to the IPv4 loopback address
 and serves the packaged Micropolis web application.  It then opens the
 application in the user's default browser using
@@ -24,12 +24,12 @@ ephemeral port.  Changing ports changes the browser origin and can therefore
 make browser-stored settings or saved state appear separate.
 .SH ENVIRONMENT
 .TP
-.B MICROPOLIS_WEB_ROOT
+.B MICROPOLIS_CORE_WEB_ROOT
 Override the directory from which the packaged web tree is served.  This is
 primarily intended for package testing.
 .SH FILES
 .TP
-.I /usr/share/micropolis/web/MicropolisCore
+.I /usr/share/micropolis-core/web/MicropolisCore
 Packaged static Micropolis application.
 .SH SECURITY
 The built-in HTTP server binds only to 127.0.0.1 and is not exposed on

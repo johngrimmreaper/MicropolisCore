@@ -1,6 +1,12 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Micropolis
 Source: https://github.com/SimHacker/MicropolisCore
+Files-Excluded:
+ html
+ laszlo
+ micropolis/src/lib/micropolisengine.data
+ micropolis/src/lib/micropolisengine.js
+ micropolis/src/lib/micropolisengine.wasm
 Comment:
  Micropolis includes additional terms made under GPLv3 section 7 and a
  separate public-name/trademark permission. The complete upstream notices are
@@ -10,11 +16,15 @@ Comment:
 Files: *
 Copyright: 1989-2007 Electronic Arts Inc.
            Don Hopkins and Micropolis contributors
-License: GPL-3+ with-EA-section-7-terms
+License: GPL-3+-with-EA-section-7-terms
 
 Files: debian/*
 Copyright: 2026 Reaper <JohnGrimmReaper@disroot.org>
 License: GPL-3+
+
+Files: debian/io.github.SimHacker.MicropolisCore.metainfo.xml
+Copyright: 2026 Reaper <JohnGrimmReaper@disroot.org>
+License: CC0-1.0
 
 License: GPL-3+
  This program is free software: you can redistribute it and/or modify it under
@@ -25,7 +35,7 @@ License: GPL-3+
  On Debian systems, the complete text of the GNU General Public License version
  3 can be found in /usr/share/common-licenses/GPL-3.
 
-License: GPL-3+ with-EA-section-7-terms
+License: GPL-3+-with-EA-section-7-terms
  This work is distributed under GNU GPL version 3 or, where the upstream
  notice permits, any later version, together with the additional permissions,
  requirements and disclaimers stated by Electronic Arts under GPLv3 section 7.
@@ -35,3 +45,7 @@ License: GPL-3+ with-EA-section-7-terms
  .
  On Debian systems, the complete text of the GNU General Public License version
  3 can be found in /usr/share/common-licenses/GPL-3.
+
+License: CC0-1.0
+ On Debian systems, the complete text of the Creative Commons CC0 1.0 Universal
+ license can be found in /usr/share/common-licenses/CC0-1.0.

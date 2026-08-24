@@ -1,0 +1,8 @@
+# The files below are the exact upstream-published SvelteKit/Vite deployment
+# corresponding to the source and deployment commits documented in
+# debian/vendor/BUILDINFO.  Their preferred Svelte/TypeScript sources and
+# build configuration are present under micropolis/ in this source package.
+micropolis-core source: source-is-missing [debian/vendor/micropolis-web/_app/immutable/chunks/*.js]
+micropolis-core source: source-is-missing [debian/vendor/micropolis-web/_app/immutable/entry/*.js]
+micropolis-core source: source-is-missing [debian/vendor/micropolis-web/_app/immutable/nodes/*.js]
+micropolis-core source: source-is-missing [debian/vendor/micropolis-web/index.html]

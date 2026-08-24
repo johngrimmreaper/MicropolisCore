@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Micropolis Core
+GenericName=City Simulation
+Comment=Explore the Micropolis Core city simulation frontend
+Exec=/usr/games/micropolis-core
+Icon=micropolis-core
+Terminal=false
+Categories=Game;Simulation;
+Keywords=city;simulation;simulator;strategy;
+StartupNotify=true

@@ -22,7 +22,7 @@ Architecture: any is intentional
 --------------------------------
 
 Although the installed HTML, JavaScript, data and WebAssembly payload is not
-host-architecture-specific, the micropolis binary package is deliberately
+host-architecture-specific, the micropolis-core binary package is deliberately
 Architecture: any. The purpose is to make Launchpad schedule and test this
 source package independently on every enabled target architecture, including
 i386 and s390x, rather than building one Architecture: all package only once.

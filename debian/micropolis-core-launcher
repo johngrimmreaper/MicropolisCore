@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Run the packaged Micropolis web application on loopback HTTP."""
+"""Run the packaged Micropolis Core web application on loopback HTTP."""
 
 import argparse
 import os
@@ -13,8 +13,8 @@ from urllib.request import Request, urlopen
 
 APP_PATH = "/MicropolisCore"
 DEFAULT_PORT = 48080
-DEFAULT_WEB_ROOT = "/usr/share/micropolis/web"
-SERVER_MARKER = "micropolis-debian-launcher/1"
+DEFAULT_WEB_ROOT = "/usr/share/micropolis-core/web"
+SERVER_MARKER = "micropolis-core-debian-launcher/1"
 
 
 class MicropolisHandler(SimpleHTTPRequestHandler):
@@ -90,19 +90,19 @@ def open_browser(url):
             start_new_session=True,
         )
     except OSError as exc:
-        print(f"micropolis: unable to start xdg-open: {exc}", file=sys.stderr)
+        print(f"micropolis-core: unable to start xdg-open: {exc}", file=sys.stderr)
         return False
     return True
 
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="serve the packaged Micropolis application on loopback HTTP"
+        description="serve the packaged Micropolis Core application on loopback HTTP"
     )
     parser.add_argument(
         "--no-browser",
         action="store_true",
-        help="serve Micropolis without opening the default browser",
+        help="serve Micropolis Core without opening the default browser",
     )
     parser.add_argument(
         "--port",
@@ -124,13 +124,13 @@ def parse_args():
 
 def main():
     args = parse_args()
-    web_root = Path(os.environ.get("MICROPOLIS_WEB_ROOT", DEFAULT_WEB_ROOT)).resolve()
+    web_root = Path(os.environ.get("MICROPOLIS_CORE_WEB_ROOT", DEFAULT_WEB_ROOT)).resolve()
     app_root = web_root / APP_PATH.lstrip("/")
 
     required = (app_root / "index.html", app_root / "micropolisengine.wasm")
     missing = [str(path) for path in required if not path.is_file() or path.stat().st_size == 0]
     if missing:
-        print("micropolis: packaged web application is incomplete:", file=sys.stderr)
+        print("micropolis-core: packaged web application is incomplete:", file=sys.stderr)
         for path in missing:
             print(f"  {path}", file=sys.stderr)
         return 1
@@ -150,7 +150,7 @@ def main():
         server = LoopbackServer(("127.0.0.1", args.port), handler)
     except OSError as exc:
         print(
-            f"micropolis: cannot bind 127.0.0.1:{args.port}: {exc}\n"
+            f"micropolis-core: cannot bind 127.0.0.1:{args.port}: {exc}\n"
             "Choose another port with --port. Note that browser-stored game data "
             "is scoped to the selected port.",
             file=sys.stderr,

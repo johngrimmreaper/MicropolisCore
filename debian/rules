@@ -5,26 +5,30 @@ export LC_ALL = C.UTF-8
 %:
 	dh $@
 
+override_dh_auto_clean:
+	$(MAKE) -C MicropolisEngine clean
+	rm -rf debian/.test-web
+
 override_dh_auto_configure:
 	:
 
 override_dh_auto_build:
 	test -s debian/vendor/micropolis-web/index.html
 	test -s debian/vendor/micropolis-web/micropolisengine.wasm
-	python3 -c 'compile(open("debian/micropolis-launcher", encoding="utf-8").read(), "debian/micropolis-launcher", "exec")'
+	python3 -c 'compile(open("debian/micropolis-core-launcher", encoding="utf-8").read(), "debian/micropolis-core-launcher", "exec")'
 
 override_dh_auto_test:
 	rm -rf debian/.test-web
 	install -d debian/.test-web
 	ln -s "$(CURDIR)/debian/vendor/micropolis-web" debian/.test-web/MicropolisCore
-	MICROPOLIS_WEB_ROOT="$(CURDIR)/debian/.test-web" debian/tests/smoke debian/micropolis-launcher
+	MICROPOLIS_CORE_WEB_ROOT="$(CURDIR)/debian/.test-web" debian/tests/smoke debian/micropolis-core-launcher
 	rm -rf debian/.test-web
 
 override_dh_auto_install:
-	install -d debian/micropolis/usr/share/micropolis/web/MicropolisCore
-	cp -a debian/vendor/micropolis-web/. debian/micropolis/usr/share/micropolis/web/MicropolisCore/
-	install -D -m 0755 debian/micropolis-launcher debian/micropolis/usr/games/micropolis
-	install -D -m 0644 debian/micropolis.desktop debian/micropolis/usr/share/applications/micropolis.desktop
-	install -D -m 0644 debian/vendor/micropolis-web/favicon.png debian/micropolis/usr/share/pixmaps/micropolis.png
-	install -D -m 0644 debian/io.github.SimHacker.MicropolisCore.metainfo.xml debian/micropolis/usr/share/metainfo/io.github.SimHacker.MicropolisCore.metainfo.xml
-	install -D -m 0644 debian/vendor/BUILDINFO debian/micropolis/usr/share/doc/micropolis/web-buildinfo
+	install -d debian/micropolis-core/usr/share/micropolis-core/web/MicropolisCore
+	cp -a debian/vendor/micropolis-web/. debian/micropolis-core/usr/share/micropolis-core/web/MicropolisCore/
+	install -D -m 0755 debian/micropolis-core-launcher debian/micropolis-core/usr/games/micropolis-core
+	install -D -m 0644 debian/micropolis-core.desktop debian/micropolis-core/usr/share/applications/micropolis-core.desktop
+	install -D -m 0644 debian/vendor/micropolis-web/favicon.png debian/micropolis-core/usr/share/pixmaps/micropolis-core.png
+	install -D -m 0644 debian/io.github.SimHacker.MicropolisCore.metainfo.xml debian/micropolis-core/usr/share/metainfo/io.github.SimHacker.MicropolisCore.metainfo.xml
+	install -D -m 0644 debian/vendor/BUILDINFO debian/micropolis-core/usr/share/doc/micropolis-core/web-buildinfo

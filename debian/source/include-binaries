@@ -1,0 +1,12 @@
+debian/vendor/micropolis-web/micropolisengine.data
+debian/vendor/micropolis-web/micropolisengine.wasm
+debian/vendor/micropolis-web/favicon.png
+debian/vendor/micropolis-web/_app/immutable/assets/fira-mono-greek-400-normal.C3zng6O6.woff2
+debian/vendor/micropolis-web/_app/immutable/assets/fira-mono-cyrillic-400-normal.36-45Uyg.woff2
+debian/vendor/micropolis-web/_app/immutable/assets/fira-mono-all-400-normal.B2mvLtSD.woff
+debian/vendor/micropolis-web/_app/immutable/assets/fira-mono-cyrillic-ext-400-normal.B04YIrm4.woff2
+debian/vendor/micropolis-web/_app/immutable/assets/fira-mono-latin-400-normal.DKjLVgQi.woff2
+debian/vendor/micropolis-web/_app/immutable/assets/all.uInXxZgm.png
+debian/vendor/micropolis-web/_app/immutable/assets/fira-mono-greek-ext-400-normal.CsqI23CO.woff2
+debian/vendor/micropolis-web/_app/immutable/assets/fira-mono-latin-ext-400-normal.D6XfiR-_.woff2
+debian/vendor/micropolis-web/_app/immutable/assets/micropolisengine.CCiVTgU7.wasm
