@@ -1,0 +1,14 @@
+Source-Repository: https://github.com/SimHacker/MicropolisCore
+Source-Commit: c591573ad8c8c8bbecf26cea018e2c164c22c252
+Deployment-Branch: gh-pages
+Deployment-Commit: 20dedfac90bc348b44de80b77a6cec481d952661
+Deployment-Tree: 0ed9cef2a6afbe0c2db0cf5b157ddd8d87bce534
+Selected-App-Tree: 9b97bf7680f21735a61af1cd98f7a197a490fdcd
+Deployment-Date-UTC: 2025-04-06
+Base-Path: /MicropolisCore
+
+The files in debian/vendor/micropolis-web are selected without content changes
+from the deployment above: _app/, index.html, about.html, favicon.png,
+micropolisengine.data and micropolisengine.wasm. Website-only files such as
+CNAME and the generated documentation tree are intentionally omitted. File
+modes are normalized for Debian installation where appropriate.

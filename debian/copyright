@@ -1,0 +1,37 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Micropolis
+Source: https://github.com/SimHacker/MicropolisCore
+Comment:
+ Micropolis includes additional terms made under GPLv3 section 7 and a
+ separate public-name/trademark permission. The complete upstream notices are
+ retained in MicropolisGPLLicenseNotice.md and MicropolisPublicNameLicense.md
+ and are installed in the binary package documentation.
+
+Files: *
+Copyright: 1989-2007 Electronic Arts Inc.
+           Don Hopkins and Micropolis contributors
+License: GPL-3+ with-EA-section-7-terms
+
+Files: debian/*
+Copyright: 2026 Reaper <JohnGrimmReaper@disroot.org>
+License: GPL-3+
+
+License: GPL-3+
+ This program is free software: you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation, either version 3 of the License, or (at your option) any later
+ version.
+ .
+ On Debian systems, the complete text of the GNU General Public License version
+ 3 can be found in /usr/share/common-licenses/GPL-3.
+
+License: GPL-3+ with-EA-section-7-terms
+ This work is distributed under GNU GPL version 3 or, where the upstream
+ notice permits, any later version, together with the additional permissions,
+ requirements and disclaimers stated by Electronic Arts under GPLv3 section 7.
+ .
+ The complete additional terms are reproduced verbatim in the upstream file
+ MicropolisGPLLicenseNotice.md, installed alongside this copyright file.
+ .
+ On Debian systems, the complete text of the GNU General Public License version
+ 3 can be found in /usr/share/common-licenses/GPL-3.

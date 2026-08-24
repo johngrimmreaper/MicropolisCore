@@ -1,0 +1,55 @@
+#!/bin/sh
+set -eu
+
+launcher=${1:-/usr/games/micropolis}
+tmpdir=$(mktemp -d)
+server_pid=
+
+cleanup() {
+    if [ -n "$server_pid" ]; then
+        kill "$server_pid" 2>/dev/null || true
+        wait "$server_pid" 2>/dev/null || true
+    fi
+    rm -rf "$tmpdir"
+}
+trap cleanup EXIT HUP INT TERM
+
+"$launcher" --no-browser --port 0 --write-port "$tmpdir/port" >"$tmpdir/server.log" 2>&1 &
+server_pid=$!
+
+count=0
+while [ ! -s "$tmpdir/port" ]; do
+    if ! kill -0 "$server_pid" 2>/dev/null; then
+        cat "$tmpdir/server.log" >&2
+        exit 1
+    fi
+    count=$((count + 1))
+    if [ "$count" -ge 100 ]; then
+        echo "timed out waiting for Micropolis launcher" >&2
+        cat "$tmpdir/server.log" >&2
+        exit 1
+    fi
+    sleep 0.05
+done
+
+port=$(cat "$tmpdir/port")
+python3 - "$port" <<'PY'
+import sys
+from urllib.request import urlopen
+
+port = int(sys.argv[1])
+base = f"http://127.0.0.1:{port}/MicropolisCore/"
+
+with urlopen(f"http://127.0.0.1:{port}/", timeout=5) as response:
+    html = response.read().decode("utf-8")
+    assert response.geturl() == base, response.geturl()
+    assert "Micropolis" in html
+    assert response.headers.get("X-Micropolis-Launcher") == "micropolis-debian-launcher/1"
+
+with urlopen(base + "micropolisengine.wasm", timeout=5) as response:
+    payload = response.read(8)
+    assert payload.startswith(b"\x00asm"), payload
+    assert response.headers.get_content_type() == "application/wasm", response.headers.get("Content-Type")
+
+print("PASS: Micropolis launcher serves HTML and WebAssembly over loopback HTTP")
+PY

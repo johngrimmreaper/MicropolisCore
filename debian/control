@@ -1,0 +1,26 @@
+Source: micropolis
+Section: games
+Priority: optional
+Maintainer: Reaper <JohnGrimmReaper@disroot.org>
+Build-Depends:
+ debhelper-compat (= 13),
+ python3:any,
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+Homepage: https://github.com/SimHacker/MicropolisCore
+Vcs-Git: https://github.com/johngrimmreaper/MicropolisCore.git -b ubuntu/24.04-noble
+Vcs-Browser: https://github.com/johngrimmreaper/MicropolisCore/tree/ubuntu/24.04-noble
+
+Package: micropolis
+Architecture: any
+Depends:
+ ${misc:Depends},
+ python3,
+ xdg-utils,
+Description: real-time city simulation game
+ Micropolis is the open-source release of the classic city simulation
+ engine, presented as a self-contained local web application.
+ .
+ This package serves the bundled application over loopback HTTP and opens
+ it in the user's default browser. No external web service is required to
+ load or run the packaged game.

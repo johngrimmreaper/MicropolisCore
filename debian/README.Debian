@@ -1,0 +1,36 @@
+Micropolis for Ubuntu
+=====================
+
+This package runs Micropolis as a self-contained local web application.
+/usr/games/micropolis starts an HTTP server bound only to 127.0.0.1 and opens
+the game in the user's default browser. The packaged application itself does
+not require an external web application service.
+
+The launcher normally uses port 48080. Keeping a stable port is intentional:
+browser-managed site data is scoped to an origin, which includes the port. If
+another application owns that port, Micropolis exits with an error rather than
+silently selecting a different origin. An alternate port can be selected with
+--port, with the consequence that browser-stored settings or saved state may
+appear separate.
+
+Architecture coverage
+---------------------
+
+The installed web application is CPU-independent. Nevertheless the binary
+package is deliberately declared Architecture: any so Launchpad performs a
+real package build and smoke test on each enabled Ubuntu architecture instead
+of producing a single Architecture: all binary. This is specifically intended
+to exercise amd64, i386, arm64, armhf, ppc64el, riscv64 and s390x builders when
+the target series publishes those architectures.
+
+Upstream attribution
+--------------------
+
+Micropolis(tm) source code Copyright (C) 1989 - 2007 Electronic Arts, Inc.
+Micropolis is a trademark of Electronic Arts. The source code in this release
+is licensed under the GPLv3 license. Original SimCity game concepts, design
+and documentation by Will Wright and all rights reserved.
+
+See MicropolisGPLLicenseNotice.md and MicropolisPublicNameLicense.md in this
+package's documentation for the complete upstream notices and additional
+terms.

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.SimHacker.MicropolisCore</id>
+  <name>Micropolis</name>
+  <summary>Build and manage a simulated city</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <description>
+    <p>
+      Micropolis is the open-source release of the classic city simulation
+      engine. Build a city, manage services and infrastructure, and respond
+      to the changing needs of its population.
+    </p>
+    <p>
+      This package contains a self-contained browser application and serves
+      it only on the local loopback interface. No remote application server
+      is required.
+    </p>
+  </description>
+  <launchable type="desktop-id">micropolis.desktop</launchable>
+  <provides>
+    <binary>micropolis</binary>
+  </provides>
+  <url type="homepage">https://github.com/SimHacker/MicropolisCore</url>
+  <content_rating type="oars-1.1"/>
+</component>

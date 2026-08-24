@@ -1,0 +1,43 @@
+Micropolis Ubuntu source package notes
+======================================
+
+Frozen upstream web deployment
+------------------------------
+
+The Debian package build deliberately does not invoke Node.js, pnpm, Vite or
+Emscripten. Instead, debian/vendor/micropolis-web contains the exact static
+application files selected from upstream's published gh-pages deployment.
+The deployment commit records that it was generated from source commit
+c591573ad8c8c8bbecf26cea018e2c164c22c252; full provenance is recorded in
+debian/vendor/BUILDINFO.
+
+This design is required for the Ubuntu 24.04 Noble package to build offline on
+all target architectures. In particular, Noble does not publish its nodejs
+binary package for i386, while the newer Micropolis frontend toolchain also
+requires a newer Node.js than Noble provides. Making package builds consume a
+frozen upstream-published deployment avoids network access and avoids an
+architecture-dependent JavaScript build dependency.
+
+Architecture: any is intentional
+--------------------------------
+
+Although the installed HTML, JavaScript, data and WebAssembly payload is not
+host-architecture-specific, the micropolis binary package is deliberately
+Architecture: any. The purpose is to make Launchpad schedule and test this
+source package independently on every enabled target architecture, including
+i386 and s390x, rather than building one Architecture: all package only once.
+
+Updating the package
+--------------------
+
+When moving to another upstream snapshot:
+
+  1. identify a published static deployment and the exact source commit that
+     generated it;
+  2. replace debian/vendor/micropolis-web with that matching deployment;
+  3. update debian/vendor/BUILDINFO and debian/changelog together;
+  4. verify that the deployment still uses the /MicropolisCore base path;
+  5. run the package smoke test and a clean sbuild for every supported target.
+
+Do not replace the frozen deployment with a networked npm/pnpm build in
+debian/rules: Launchpad package builds are expected to be self-contained.

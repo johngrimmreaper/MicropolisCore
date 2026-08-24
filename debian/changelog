@@ -1,0 +1,14 @@
+micropolis (0.0.20250405+gitc591573-0ubuntu1~24.04.1) noble; urgency=medium
+
+  * Package the upstream web release built from Git commit c591573.
+  * Vendor the matching upstream-published static deployment so package
+    builds remain offline and do not depend on Node.js or pnpm.
+  * Add a loopback-only launcher that serves Micropolis locally and opens
+    the user's default browser.
+  * Build the binary package as Architecture: any intentionally, allowing
+    Launchpad to exercise the source package on every enabled Noble
+    architecture, including i386 and s390x.
+  * Add desktop integration, AppStream metadata, a manual page, and an
+    autopkgtest smoke test covering HTML and WebAssembly delivery.
+
+ -- Reaper <JohnGrimmReaper@disroot.org>  Mon, 24 Aug 2026 18:06:35 +0000
