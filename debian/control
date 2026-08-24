@@ -8,8 +8,8 @@ Build-Depends:
 Standards-Version: 4.6.2
 Rules-Requires-Root: no
 Homepage: https://github.com/SimHacker/MicropolisCore
-Vcs-Git: https://github.com/johngrimmreaper/MicropolisCore.git -b ubuntu/24.04-noble
-Vcs-Browser: https://github.com/johngrimmreaper/MicropolisCore/tree/ubuntu/24.04-noble
+Vcs-Git: https://github.com/johngrimmreaper/MicropolisCore.git -b ubuntu/26.04-resolute
+Vcs-Browser: https://github.com/johngrimmreaper/MicropolisCore/tree/ubuntu/26.04-resolute
 
 Package: micropolis-core
 Architecture: any
